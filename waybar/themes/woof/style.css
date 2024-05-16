@@ -1,0 +1,245 @@
+* {
+	border: none;
+  font-family: 'SFMono Nerd Font';
+  font-weight: bold;
+	font-size: 12px;
+	min-height: 1px;
+}
+
+window#waybar {
+  transition: none;
+  background: transparent;
+  color: #FFF;
+}
+
+@keyframes lowbat {
+    to {
+        background-color: #f38ba8;
+        color: #11111b;
+    }
+}
+
+@keyframes notif {
+  to {
+      background-color: #89b4fa;
+      color: #11111b;
+  }
+}
+
+@keyframes dndnotif {
+  to {
+      background-color: #f38ba8;
+      color: #11111b;
+  }
+}
+
+#window,
+#backlight,
+#network,
+#workspaces,
+#bluetooth,
+#pulseaudio,
+#battery,
+#clock,
+#temperature,
+#idle_inhibitor,
+#power-profiles-daemon,
+#wireplumber,
+#mpris,
+#custom-quit,#custom-lock,#custom-reboot,#custom-power,#custom-wallpaper,#custom-session,#custom-notifications,
+#tray {
+  margin-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+  color: #DDD; /* inactive text colour */
+  background: #111111;
+}
+
+
+#backlight,
+#tray,
+#battery,
+#pulseaudio,
+#bluetooth,
+#network,
+#power-profiles-daemon,
+#wireplumber,
+#mpris,
+#custom-quit,#custom-lock,#custom-reboot,#power,#custom-wallpaper,#session,#custom-notifications
+#idle_inhibitor {
+  font-size: 16px;
+}
+
+
+#workspaces {
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+#workspaces button {
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #11111b;
+  color: #cdd6f4; /* inactive text colour */
+}
+
+#workspaces button.active {
+  background: #a6e3a1;
+  color: #11111b;
+  border: none;
+}
+
+#workspaces button label {
+  font-size: 22px;
+  font-weight: 900;
+  /* padding-right: 3px; */
+  margin: -4px;
+  margin-top: -7px;
+}
+
+#window{
+  border-radius: 10px;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+window#waybar.solo #window {
+  border: 3px solid #777;
+}
+
+#tray,#mpris,#power,#connection,#clock,#audio,#idle_inhibitor {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#mpris,#tray,#custom-notifications,#clock,#wireplumber,#idle_inhibitor {
+  border-radius: 10px;
+}
+
+#battery {
+	color: #B5E8E0;
+	background: #11111b;
+  border-radius: 0 10px 10px 0;
+  padding-right: 18px;
+}
+
+#battery.plugged,#battery.charging {
+	background-color: #11111b;
+  color: #a6e3a1;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #11111b;
+  color: #f38ba8;
+  animation-name: lowbat;
+  animation-duration: 5s;
+  animation-timing-function: steps(10);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#bluetooth,
+#bluetooth.connected,
+#bluetooth.connected-battery,
+#bluetooth.on {
+  font-size: 20px;
+  background: #11111b;
+	color: #9BB8CD;
+  border-radius: 10px 0 0 10px;
+}
+
+#bluetooth.disabled{color: #f38ba8;}
+
+#bluetooth.off{color: #777;}
+
+#network.ethernet,
+#network {
+  background: #11111b;
+	color: #f2cdcd;
+  border-radius: 0 10px 10px 0;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+}
+
+#network { padding-right: 18px;}
+
+#tray {
+  background: #11111b;
+  color: #B5E8E0;
+}
+
+
+#idle_inhibitor {
+	background: #11111b;
+	margin-right: 10px;
+	padding-right: 14px;
+}
+
+#idle_inhibitor.deactivated {
+  color: #FBF9F1;
+}
+
+#idle_inhibitor.activated {
+  color: #FFCF81;
+}
+
+#clock {
+  font-size: 16px;
+	background: #11111b;
+	color: #ABE9B3;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+
+#custom-notifications,
+#custom-notifications.none,
+#custom-notifications.inhibited-none{
+	font-size: 20px;
+	color: #f2cdcd;
+	background: #11111b;
+	padding-right: 12px;
+	padding-left: 10px;
+	margin-right: 5px;
+}
+
+#custom-notifications.dnd-none,
+#custom-notifications.dnd-inhibited-none {
+  color: #f38ba8;
+}
+
+#custom-notifications.notification,
+#custom-notifications.dnd-notification,
+#custom-notifications.inhibited-notification,
+#custom-notifications.dnd-inhibited-notification {
+  color: #89b4fa;
+  background-color: #11111b;
+  animation-name: notif;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;  
+}
+
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-inhibited-notification {
+  color: #f38ba8;
+  background-color: #11111b;
+  animation-name: dndnotif;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#backlight{
+  background-color: #11111b;
+  color: #abcdef;
+  border-radius: 10px 0 0 10px;
+}
+
+#backlight.bright{ color: #f9e2af; }

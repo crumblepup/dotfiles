@@ -1,0 +1,272 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "modules-left": ["group/hyprland"],
+  "modules-center": ["mpris"],
+  "modules-right": ["tray", "group/audio","group/connection", "idle_inhibitor", "group/power", "clock", "group/misc"],
+  
+  "group/hyprland":{
+    "orientation": "inherit",
+    "modules": [
+      "hyprland/workspaces",
+      "hyprland/window",
+    ]
+  },
+
+  
+  "group/connection":{
+    "orientation": "inherit",
+    "modules": [
+      "bluetooth",
+      "network",
+    ]
+  },
+
+  
+  "group/power":{
+    "orientation": "inherit",
+    "modules": [
+      "backlight",
+      "power-profiles-daemon",
+      "battery",
+    ]
+  },
+
+
+  "group/audio":{
+    "orientation": "inherit",
+    "modules": [
+      "wireplumber",
+    ]
+  },
+
+  "group/misc":{
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "not-misc",
+      "transition-left-to-right": false,
+    },
+    "modules": [
+      "custom/notifications",
+      "custom/power",
+      "custom/reboot",
+      "custom/quit",
+      "custom/lock",
+      "custom/wallpaper",
+    ]
+  },
+
+  "group/session":{
+    "orientation": "inherit",
+    "modules": [
+      "custom/power",
+      "custom/quit",
+      "custom/reboot",
+      "custom/lock",
+    ]
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "sort-by-number": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "〇",
+      "urgent": "!",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    //"max-length": 50,
+    "rewrite": {
+      "(.*) – Doom Emacs": " $1",
+      "(.*) — LibreWolf": "LibreWolf"
+    },
+    "tooltip": false,
+    "separate-outputs": true,
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "states": {
+      "bright": 50,
+      "dim40": 40,
+      "dim30": 30,
+      "dim20": 20,
+      "dim10": 10,
+      "dim0": 0,
+    },
+    "format-icons": ["󰽤","","","","","","","","","","","","","","󰖨"]
+  },
+  "battery": {
+    "tooltip": true,
+    "tooltip-format": "Battery is currently at {capacity}%.\n{timeTo}.",
+    "states": {
+      "good": 95,
+      "warning": 39,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-charging": "󱐋{icon}",
+    "format-plugged": " ",
+    "format-icons": ["", "", "", "", ""]
+  },
+  
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈",
+      "deactivated": "󰛐"
+    }
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "max-volume": 200,
+    "format-icons": ["", "", ""]
+  },
+
+  "mpris": {
+	  "format": "{player_icon} {dynamic}",
+	  "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-len": 40,
+    "dynamic-importance-order": [
+      "title",
+      "artist",
+      "length",
+      "album",
+      "position",
+    ],
+    "interval": 1,
+	  "player-icons": {
+		  "default": "",
+		  "mpv": "🎵"
+	  },
+	  "status-icons": {
+		  "paused": ""
+	  },
+	  // "ignored-players": ["firefox"]
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
+    "format-connected-battery": "{icon}",
+    "format-icons": ["󰤾", "󰤿", "󰥀", "󰥁", "󰥂", "󰥃", "󰥄", "󰥅", "󰥆", "󰥉"],
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+	  "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	  "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "kcmshell6 kcm_bluetooth",
+  },
+
+	"network": {
+		"tooltip": true,
+    "tooltip-format-wifi": "{icon} Connected to {essid}\nSignal: {signalStrength}",
+    "format-disconnected": "󰤭",
+		"format-wifi": "{icon}",
+    "format-icons": ["󰤯","󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-ethernet": "󰈀",
+    "on-click": "networkmanager_dmenu",
+    "on-click-right": "nm-connection-editor",
+	},
+
+  "clock": {
+    "tooltip": true,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "on-click-right": "mode",
+      "format": {
+        "months":     "<span color='#f5c2e7'><b>{}</b></span>",
+        "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks":      "<span color='#74c7ec'><b>W{}</b></span>",
+        "weekdays":   "<span color='#fab387'><b>{}</b></span>",
+        "today":      "<span color='#a6e3a1'><b><u>{}</u></b></span>"
+      }
+    },
+    "format": "󰃭 {:%d/%m/%y  %H:%M}"
+  },
+
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱅫",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󱅫",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1; swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    },
+  },
+
+  "custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "hyprlock"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "loginctl reboot"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "loginctl poweroff"
+  },
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "tooltip": false,
+    "on-click": "~/.local/src/scripts/swww-rotate.sh -c ~/.local/src/mazurek-dots/wallpapers/catppuccin-cassettes/Dark"
+  },
+}
+
