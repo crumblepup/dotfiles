@@ -25,6 +25,9 @@ export filebrowser=thunar
 # ALIASES
 # -----------------------------------------------------
 
+
+alias weather='curl wttr.in'
+alias pls='sudo'
 alias shutdown='systemctl poweroff'
 alias matrix='unimatrix'
 alias wifi='nmtui'
@@ -91,3 +94,4 @@ else
 fi
 
 export PATH=$PATH:/home/lexi/.spicetify
+export PATH=/home/lexi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/lexi/.spicetify:/home/lexi/.spicetify
