@@ -78,12 +78,12 @@ eval "$(starship init bash)"
 cat ~/.cache/wal/sequences
 
 # -----------------------------------------------------
-# PFETCH if on wm
+# HYFETCH if on wm
 # -----------------------------------------------------
 
 echo ""
 if [[ $(tty) == *"pts"* ]]; then
-    pfetch
+    hyfetch
 else
     if [ -f /bin/qtile ]; then
         echo "Start Qtile X11 with command Qtile"
