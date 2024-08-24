@@ -14,7 +14,7 @@
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
-#I FUCKING HATE WAYLAND
+# Remove this is xwayland apps launched through the terminal have graphics issues
 QT_QPA_PLATFORM=xcb
 
 # Define Editor and filebrowser
