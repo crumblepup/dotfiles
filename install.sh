@@ -199,4 +199,4 @@ echo ":: Installation files cloned into dotfiles folder"
 
 # Change into the dotfiles directory
 cd ~/dotfiles
-echo ":: Installation complete"
+echo ":: Installation complete. Please log in to Hyprland to confirm a successful install."
