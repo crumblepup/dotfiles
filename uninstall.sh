@@ -7,6 +7,4 @@
 #                                      
 clear
 sleep 1
-cp $HOME/dotfiles/apps/ML4W_Dotfiles_Uninstaller.AppImage $HOME/.cache
-cd $HOME/.cache
-./ML4W_Dotfiles_Uninstaller.AppImage
+rm -rf $HOME/dotfiles/*
