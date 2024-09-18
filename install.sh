@@ -97,12 +97,17 @@ _installPackagesFedora() {
 installer_packages_arch=(
     "figlet"
     "git"
+    "kitty"
+    "alacritty" #fallback terminal if needed
+
 )
 
 # Required packages for the installer on Fedora
 installer_packages_fedora=(
     "figlet"
     "git"
+    "kitty"
+    "alacritty"
 )
 
 clear
